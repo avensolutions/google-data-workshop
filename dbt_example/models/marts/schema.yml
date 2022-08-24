@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: fct_commits
+    description: "Denormalized fact table for GitHub commits"
+    columns:
+      - name: commit_short_sha
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
