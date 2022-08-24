@@ -23,29 +23,38 @@ with models.DAG(
         'run_dbt_job',
         schedule_interval=None,
         default_args=default_dag_args) as dag:
-    def greeting():
+    def log_message(message):
         import logging
-        logging.info('Hello World!')
+        logging.info(message)
 
-    # An instance of an operator is called a task. In this case, the
-    # hello_python task calls the "greeting" Python function.
-    hello_python = python_operator.PythonOperator(
-        task_id='hello',
-        python_callable=greeting)
+    # commands to be run in K8S operator task
+    commands = [
+    'git clone https://github.com/avensolutions/google-data-workshop.git',
+    'cd google-data-workshop/dbt_example',
+    'dbt parse --profiles-dir .',
+    'dbt run --profiles-dir .',
+    'dbt test --profiles-dir .'
+    ]
+    
 
-    # Likewise, the goodbye_bash task calls a Bash script.
-    goodbye_bash = bash_operator.BashOperator(
-        task_id='bye',
-        bash_command='echo Goodbye.')
+    # example python operator usage
+    python_task = python_operator.PythonOperator(
+        task_id='python_task',
+        python_callable=log_message('Running a task usign the python operator'))
 
-    kubernetes_min_pod = KubernetesPodOperator(
+    # example bash operator usage
+    bash_task = bash_operator.BashOperator(
+        task_id='bash_task',
+        bash_command='Running a bash task')
+
+    kubernetes_task = KubernetesPodOperator(
         # The ID specified for the task.
-        task_id='pod-ex-minimum',
+        task_id='kubernetes_task',
         # Name of task you want to run, used to generate Pod ID.
         name='pod-ex-minimum',
         # Entrypoint of the container, if not specified the Docker container's
         # entrypoint is used. The cmds parameter is templated.
-        cmds=['dbt'],
+        cmds=commands,
         # The namespace to run within Kubernetes, default namespace is
         # `default`. There is the potential for the resource starvation of
         # Airflow workers and scheduler within the Cloud Composer environment,
@@ -62,5 +71,5 @@ with models.DAG(
         image='ghcr.io/dbt-labs/dbt-bigquery:1.2.latest')
 
     # Define the order in which the tasks complete by using the >> and <<
-    # operators. In this example, hello_python executes before goodbye_bash.
-    hello_python >> goodbye_bash >> kubernetes_min_pod
+    # operators
+    python_task >> bash_task >> kubernetes_task
