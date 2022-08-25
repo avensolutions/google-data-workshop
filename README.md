@@ -54,8 +54,10 @@ use `dbt init` to create an empty `dbt` project.
 
 create a target table in the `conformed` tier dataset in the `nonprod` environment by joining the following datasets:  
 
-`bigquery-public-data.san_francisco.bikeshare_stations`
-`bigquery-public-data.san_francisco.bikeshare_status`
+```
+bigquery-public-data.san_francisco.bikeshare_stations
+bigquery-public-data.san_francisco.bikeshare_status
+```
 
 The target table (named `station_bikes_status`) schema required is:  
 
