@@ -32,7 +32,7 @@ Generate a plan using `terraform plan` and execute it using `terraform apply`.
 
 ### Step 3 - Create an IAM binding for the `presentation` tier in the `nonprod` environment
 
-Use the information in [__google_bigquery_dataset_iam_binding__](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset_iam#google_bigquery_dataset_iam_binding) to create an IAM binding for the `presentation` tier in the `nonprod` environment allowing the user `javen@avensolutions` to access the dataset with the role of `roles/bigquery.dataViewer`.  
+Use the information in [__google_bigquery_dataset_iam_binding__](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset_iam#google_bigquery_dataset_iam_binding) to create an IAM binding for the `presentation` tier in the `nonprod` environment allowing the user `javen@avensolutions.com` to access the dataset with the role of `roles/bigquery.dataViewer`.  
 
 ### Challenge
 
