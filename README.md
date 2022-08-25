@@ -26,7 +26,7 @@ Generate a plan using `terraform plan` and execute it using `terraform apply`.
 
 Use the information in [__bigquery_dataset__](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset) to create a dataset for the `conformed` and `presentation` tiers in the `nonprod` environment.  
 
-The datasets should be located in `australia-southeast1` and encrypted with the KMS Keys created in step 1 and 2 respectively.  All other settings should be left at defaults.  
+The datasets should be located in `US` and encrypted with the KMS Keys created in step 1 and 2 respectively.  All other settings should be left at defaults.  
 
 Generate a plan using `terraform plan` and execute it using `terraform apply`.  
 
