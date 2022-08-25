@@ -45,7 +45,9 @@ Perform any other actions required to allow the user in the role binding in Step
 In your cloud shell, install `dbt` using the command below:  
 
 ```
-sudo pip install \
+sudo pip3 uninstall flask
+sudo pip3 uninstall Jinja2
+sudo pip3 install \
   dbt-core \
   dbt-bigquery
 ```
