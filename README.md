@@ -34,10 +34,6 @@ Generate a plan using `terraform plan` and execute it using `terraform apply`.
 
 Use the information in [__google_bigquery_dataset_iam_binding__](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset_iam#google_bigquery_dataset_iam_binding) to create an IAM binding for the `presentation` tier in the `nonprod` environment allowing the user `javen@avensolutions.com` to access the dataset with the role of `roles/bigquery.dataViewer`.  
 
-### Challenge
-
-Perform any other actions required to allow the user in the role binding in Step 4 to access the dataset. 
-
 ## DBT Challenge
 
 > An example `dbt` project is included in the [__dbt_example__](https://github.com/avensolutions/google-data-workshop/tree/main/dbt_example) directory for your reference.   
