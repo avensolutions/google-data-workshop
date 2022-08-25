@@ -30,7 +30,7 @@ The datasets should be located in `australia-southeast1` and encrypted with the 
 
 Generate a plan using `terraform plan` and execute it using `terraform apply`.  
 
-### Step 4 - Create an IAM binding for the `presentation` tier in the `nonprod` environment
+### Step 3 - Create an IAM binding for the `presentation` tier in the `nonprod` environment
 
 Use the information in [__google_bigquery_dataset_iam_binding__](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset_iam#google_bigquery_dataset_iam_binding) to create an IAM binding for the `presentation` tier in the `nonprod` environment allowing the user `javen@avensolutions` to access the dataset with the role of `roles/bigquery.dataViewer`.  
 
