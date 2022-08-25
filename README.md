@@ -63,7 +63,7 @@ The target table (named `station_bikes_status`) schema required is:
 station_id
 station_name	
 latitude
-Latitude
+longitude
 dockcount
 landmark
 installation_date
