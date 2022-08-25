@@ -8,9 +8,9 @@ Clone this repository to your Cloud Shell environment, you will then use the Clo
 
 ## Environment Deployment and Configuration using Terraform
 
-Each student will create two Big Query datasets (representing a `conformed` and `presentation` tier) encyrpted with a unique KMS key using CMEK.  This will be peformed in two *pseudo* environments (`prod` and `nonprod`).  
+Each student will create two Big Query datasets (representing a `conformed` and `presentation` tier) encyrpted with a unique KMS key using CMEK.
 
-As all resources will be created in the same project, a prefix (as seen in `prod.tfvars` and `nonprod.tfvars`) will be appended to resource names along with the students surname.  For instance if the student's surname is `Smith` then the datasets would be named `prod-smith-conformed`, `nonprod-smith-presentation`, etc.  
+As all resources will be created in the same project, a prefix (as seen in `nonprod.tfvars`) will be appended to resource names along with the students surname.  For instance if the student's surname is `Smith` then the datasets would be named `nonprod-smith-presentation`, etc.  
 
 Modify the files created in the `terraform` directory to perform the steps below.  
 
@@ -22,21 +22,17 @@ Use the information in [__kms_key_ring__](https://registry.terraform.io/provider
 
 Generate a plan using `terraform plan` and execute it using `terraform apply`.  
 
-### Step 2 - Create a KMS Key Ring and Key for the `prod` environment
+### Step 2 - Create datasets for the `conformed` and `presentation` tiers in the `nonprod` environment
 
-Follow the pattern from step 1 to create a KMS Key Ring and Key for the `prod` environment.  
-
-### Step 3 - Create datasets for the `conformed` and `presentation` tiers in the `prod` and `nonprod` environments
-
-Use the information in [__bigquery_dataset__](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset) to create datasets for the `conformed` and `presentation` tiers in the `prod` and `nonprod` environments.  
+Use the information in [__bigquery_dataset__](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset) to create a dataset for the `conformed` and `presentation` tiers in the `nonprod` environment.  
 
 The datasets should be located in `australia-southeast1` and encrypted with the KMS Keys created in step 1 and 2 respectively.  All other settings should be left at defaults.  
 
 Generate a plan using `terraform plan` and execute it using `terraform apply`.  
 
-### Step 4 - Create an IAM binding for the `presentation` tier in the `prod` environment
+### Step 4 - Create an IAM binding for the `presentation` tier in the `nonprod` environment
 
-Use the information in [__google_bigquery_dataset_iam_binding__](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset_iam#google_bigquery_dataset_iam_binding) to create an IAM binding for the `presentation` tier in the `prod` environment allowing the user `javen@avensolutions` to access the dataset with the role of `roles/bigquery.dataViewer`.  
+Use the information in [__google_bigquery_dataset_iam_binding__](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/bigquery_dataset_iam#google_bigquery_dataset_iam_binding) to create an IAM binding for the `presentation` tier in the `nonprod` environment allowing the user `javen@avensolutions` to access the dataset with the role of `roles/bigquery.dataViewer`.  
 
 ### Challenge
 
