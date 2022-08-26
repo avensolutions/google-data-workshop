@@ -1,2 +1,4 @@
 project="training-user-1-project"
-prefix="nonprod-"
+region="australia-southeast1"
+environment="nonprod"
+prefix="aven"

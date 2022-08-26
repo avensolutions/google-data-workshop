@@ -4,10 +4,22 @@ variable "project" {
 
 variable "region" {
     type = string
-    default = "australia-southeast1"
 }
 
-variable "zone" {
+variable "region_us" {
     type = string
-    default = "australia-southeast1-a"
+    default = "US"
+}
+
+variable "key_region_us" {
+    type = string
+    default = "us-east1"
+}
+
+variable "environment" {
+    type = string
+}
+
+variable "prefix" {
+    type = string
 }

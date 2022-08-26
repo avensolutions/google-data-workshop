@@ -1,0 +1,11 @@
+# Note that only one of these targets is required
+
+training_project:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: training-user-1-project
+      dataset: 'nonprod_aven'
+      threads: 1
